@@ -11,6 +11,8 @@ import {Country} from "../../interfaces/country.interface";
 })
 export class CountryPageComponent implements OnInit{
 
+  public country?: Country;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private countriesService: CountriesService,
@@ -24,12 +26,9 @@ export class CountryPageComponent implements OnInit{
           this.countriesService.searchCountryByAlphaCode(id)) // switchMap recibe un observable y retorna otro observable
       )
       .subscribe((country )=> {
-        if (!country){
-          return this.router.navigateByUrl('/'); // Redirigir a la página principal
 
-        }
-        console.log(country);
-        return;
+        if (!country) return this.router.navigateByUrl('/'); // Redirigir a la página principal
+        return this.country = country;
     });
   }
 
