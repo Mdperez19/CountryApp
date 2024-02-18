@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Country } from '../../interfaces/country.interface';
 import { CountriesService } from '../../services/countries.service';
+import {Region} from "../../interfaces/region.type";
 
-type Region = 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania'; // we can use this type to restrict the values of the region variable
+
 
 @Component({
   selector: 'app-by-region-page',
