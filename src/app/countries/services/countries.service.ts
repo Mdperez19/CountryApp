@@ -23,7 +23,7 @@ export class CountriesService {
         /* tap(countries => console.log('paso por el tap ', countries)),
         map(countries => []),
         tap(countries => console.log('paso por el segundo tap ', countries)) */
-        delay(2000),
+        //delay(2000), // Simula un delay de 2 segundos
       );
   }
 
