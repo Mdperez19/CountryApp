@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap, map, catchError,of } from 'rxjs';
+import {Observable, tap, map, catchError, of, delay} from 'rxjs';
 import { Country } from '../interfaces/country.interface';
 
 @Injectable({
@@ -23,6 +23,7 @@ export class CountriesService {
         /* tap(countries => console.log('paso por el tap ', countries)),
         map(countries => []),
         tap(countries => console.log('paso por el segundo tap ', countries)) */
+        delay(2000),
       );
   }
 
