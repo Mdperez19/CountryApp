@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Country } from '../../interfaces/country.interface';
 import { CountriesService } from '../../services/countries.service';
 
+type Region = 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania'; // we can use this type to restrict the values of the region variable
+
 @Component({
   selector: 'app-by-region-page',
   templateUrl: './by-region-page.component.html',
@@ -9,10 +11,13 @@ import { CountriesService } from '../../services/countries.service';
 })
 export class ByRegionPageComponent {
   public countries: Country[] = [];
+  public regions: Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+  public selectedRegion?: Region;
 
   constructor(private countriesService:CountriesService) { }
 
-  searchByRegion(region: string){
+  searchByRegion(region: Region){
+    this.selectedRegion = region;
     this.countriesService.searchRegion(region).subscribe(countries => {
       this.countries = countries;
     });
